@@ -1,8 +1,10 @@
 #include <stdio.h>
+
 int main()
 {
    int  p, i , len;
    int array[] = {1,2,3,4,5};
+   
    int arrlen = sizeof(array)/sizeof(array[0]);
    printf(" Numberof element in the array: %d ",arrlen);
    printf("\n The array :");
@@ -20,16 +22,13 @@ int main()
       }
  else
    {
-      for (i = p - 1; i < arrlen - 1; i++)
+      for (i = p-1; i < arrlen ; i++)
       {
          array[i] = array[i+1];
-         
-        }
+         printf("%d",array[i]);
+       }
 
-      printf("Resultant array:\n");
-
-      for (i = 0; i < arrlen ; i++)
-         printf("%d\n", array[i]);
+      
    }
   return 0;
 }
