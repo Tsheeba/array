@@ -1,34 +1,39 @@
 #include <stdio.h>
+#include <stdlib.h>
 
-int main()
+void main()
 {
-   int  p, i , len;
-   int array[] = {1,2,3,4,5};
-   
-   int arrlen = sizeof(array)/sizeof(array[0]);
-   printf(" Numberof element in the array: %d ",arrlen);
-   printf("\n The array :");
-   for(int j=0; j < arrlen; j++) {
-      
-      printf("\n %d", array[j]);
-   }
-   
-    printf("\n Enter the location for delete element\n");
-    scanf("%d",&p);
+   int array[10], p, i, n ;
+   int *a[10];
 
-  if (p >= arrlen+1)
-  {
+   printf("Enter number of elements in array\n");
+   scanf("%d", &n);
+
+   printf("Enter %d elements\n", n);
+
+   for (i = 0; i < n; i++)
+      scanf("%d", &array[i]);
+
+   printf("Enter the location delete element\n");
+   scanf("%d", &p);
+
+   if (p >= n+1)
       printf("Deletion not possible.\n");
-      }
- else
+   else
    {
-      for (i = p-1; i < arrlen ; i++)
-      {
-         array[i] = array[i+1];
-         printf("%d",array[i]);
-       }
+      for (i = p - 1; i < n - 1; i++){
+           array[i] = array[i+1];
+           a[i]=&array[i];
+           free(a[i]);
+         
+         }
 
-      
-   }
-  return 0;
+      printf("Resultant array:\n");
+    
+
+      for (i = 0; i < n ; i++)
+         printf("%d\n", array[i]);
+  }
+
+
 }
