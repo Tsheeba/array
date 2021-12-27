@@ -29,11 +29,13 @@ void main()
     
          
          }
-   free(a[i]);
+   
       printf("Resultant array:\n");
     
 
       for (i = 0; i < n ; i++)
+         free(a[i]);
+         array[i]=&a[i];
          printf("%d\n", array[i]);
   }
 
